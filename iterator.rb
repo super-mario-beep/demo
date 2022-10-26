@@ -1,11 +1,12 @@
 class Iterator
-  def initialize(object:)
+  def initialize(range:, object:)
+    @range = range
     @object = object
   end
 
   def call
-    object.each do |n|
-      p FizzBuzz.new(number: n).call
+    range.each do |n|
+      p object.call(n)
     end
   end
 

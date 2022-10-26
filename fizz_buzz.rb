@@ -1,9 +1,5 @@
 class FizzBuzz
-  def initialize(number:)
-    @number = number
-  end
-
-  def call
+  def call(number)
     unless number.is_a?(Numeric)
       raise Exception.new "unexpected parameter type"
     end
@@ -18,7 +14,4 @@ class FizzBuzz
       number
     end
   end
-
-  private
-  attr_reader :number
 end
