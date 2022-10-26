@@ -1,13 +1,14 @@
 class Iterator
-  attr_reader :range
-  def initialize(range)
-    @range = range
+  def initialize(object:)
+    @object = object
   end
 
   def call
-    @range.each do |n|
-      p FizzBuzz.new.call(n)
+    object.each do |n|
+      p FizzBuzz.new(number: n).call
     end
   end
+
+  private
+  attr_reader :object
 end
-  

@@ -1,17 +1,24 @@
 class FizzBuzz
-  attr_reader :number
-  def initialize(number)
+  def initialize(number:)
     @number = number
   end
 
   def call
-    value = "";
-    if (@number % 3).zero?
-      value << 'Fizz'
+    unless number.is_a?(Numeric)
+      raise Exception.new "unexpected parameter type"
     end
-    if (@number % 6).zero?
-      value << 'Buzz'
+
+    if (number % 3).zero? and (number % 5).zero?
+      'FizzBuzz'
+    elsif (number % 3).zero?
+      'Fizz'
+    elsif (number % 5).zero?
+      'Buzz'
+    else
+      number
     end
-    value
   end
+
+  private
+  attr_reader :number
 end
